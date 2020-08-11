@@ -1,11 +1,12 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Layout from './components/Layout'
 
 function App() {
   return (
     <div className="App">
-
+      <h1>The Beginning</h1>
+      <Layout/>
     </div>
   );
 }
