@@ -11,13 +11,13 @@ class NoteItem extends Component {
     return (
       <div className="row" onClick = {this.toggle}>
         <div className="col ok">
-        <div className="card" >
-          <h4 className="card-title">Note</h4>
-          <div className={"card-body" + (note.complete ? " completed" : "")} >
-            <ReactMarkdown source={note.text} />
+          <div className="card" >
+            <h4 className="card-title">Note</h4>
+            <div className={"card-body" + (note.complete ? " completed" : "")} >
+              <ReactMarkdown source={note.text} />
+            </div>
           </div>
         </div>
-      </div>
       </div>
     );
   }
