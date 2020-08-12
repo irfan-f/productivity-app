@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import NoteItem from './NoteItem';
 
+import './stylesheets/Layout.css'
+
 class NotesList extends Component {
   
   render() {
     const { notes } = this.props;
     return ( 
-      <div className="container">
+      <div className="container" id="list">
           {
             notes.map((_note, _index) => {
               return(

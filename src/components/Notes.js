@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import CreateNote from './CreateNote';
 import NotesList from './NotesList';
 
+import './stylesheets/Layout.css'
+
 class Notes extends Component {
   constructor() {
     super();
@@ -42,10 +44,6 @@ class Notes extends Component {
     await this.setState({notes: newNotes});
     localStorage.setItem('notes', JSON.stringify(this.state.notes))
   }
-  
-  checkMatching(note) {
-    return 
-  }
 
   removeItem = async (note) => {
     const newNotes = this.state.notes.filter((x) => x.text !== note.text);
@@ -61,7 +59,7 @@ class Notes extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container" id="wrapper2">
         <div className="row">
           <div className="col-4">
             <h2>You have <span className="badge badge-info"><big>{this.state.count}</big></span> notes</h2>
@@ -70,7 +68,7 @@ class Notes extends Component {
             <CreateNote append={this.appendNote}></CreateNote>
           </div>
           <div className="col-2 d-right">
-            <span className="float-right"><button type="button" onClick={this.clearList}>Clear list</button></span>
+            <span className="float-right"><button type="button" id="clearButton" onClick={this.clearList}>Clear list</button></span>
           </div>
         </div>
         <NotesList notes={this.state.notes} update={this.updateNote} removeItem={this.removeItem}></NotesList>

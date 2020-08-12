@@ -8,7 +8,7 @@ class Layout extends Component {
   state = {}
   render() {
     return (
-      <div className="container-fluid">
+      <div className="container-fluid" id="wrapper">
         <div className="row head">
           <Header />
         </div>

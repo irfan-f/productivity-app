@@ -15,8 +15,10 @@ class CreateNote extends Component {
 
   submitForm = (e) => {
     e.preventDefault();
-    this.props.append(this.state.note);
-    document.getElementById('create').value = '';
+    if(document.getElementById('create').value !== '') {
+      this.props.append(this.state.note);
+      document.getElementById('create').value = '';
+    }
   }
 
   render() {
@@ -24,7 +26,7 @@ class CreateNote extends Component {
       <div>
         <form onSubmit={(e) => this.submitForm(e)}>
           <input id='create' onChange={(e) => this.updateInput(e)} type='text'></input>
-          <button type='submit'>Create</button>
+          <button type='submit' id="createButton">Create</button>
         </form>
       </div>
     );
