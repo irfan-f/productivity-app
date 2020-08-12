@@ -25,7 +25,7 @@ class Notes extends Component {
   }
 
   appendNote = async (note) => {
-    await this.setState({ notes: [...this.state.notes, {text: note, complete: false}], count: this.state.count + 1 });
+    await this.setState({ notes: [{text: note.text, title: note.title, dateTo: note.dateTo, dateFrom: note.dateFrom, complete: false}, ...this.state.notes], count: this.state.count + 1 });
     localStorage.setItem('notes', JSON.stringify(this.state.notes));
     localStorage.setItem('count', parseInt(JSON.stringify(this.state.count)));
   }
@@ -35,6 +35,9 @@ class Notes extends Component {
       if(note === _note) {
         return {
           text: note.text,
+          title: note.title,
+          dateTo: note.dateTo,
+          dateFrom: note.dateFrom,
           complete: !note.complete
         }
       } else {
@@ -61,13 +64,13 @@ class Notes extends Component {
     return (
       <div className="container" id="wrapper2">
         <div className="row">
-          <div className="col-4">
-            <h2>You have <span className="badge badge-info"><big>{this.state.count}</big></span> notes</h2>
+          <div className="col-3">
+            <h3>You have <span className="badge badge-info"><big>{this.state.count}</big></span> notes</h3>
           </div>
-          <div className="col-6">
+          <div className="col-8">
             <CreateNote append={this.appendNote}></CreateNote>
           </div>
-          <div className="col-2 d-right">
+          <div className="col-1">
             <span className="float-right"><button type="button" id="clearButton" onClick={this.clearList}>Clear list</button></span>
           </div>
         </div>

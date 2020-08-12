@@ -12,10 +12,57 @@
   color: rgb(78, 78, 78);
 }
 
+/* Form styles */
+
+.arrowDown {
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  margin-bottom: 3px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.collapse {
+  margin-bottom: 5px;
+}
+
+.collapsing {
+  position: relative;
+  overflow: hidden;
+  -webkit-transition-duration: .65s;
+  transition-duration: .65s;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+
+.colors {
+  border: 1px black solid;
+  margin-left: 1px;
+  display: inline-block;
+  width: 250px;
+  height: 29px;
+  margin: 2px;
+}
+.colors label {
+  padding-left: 3px;
+  padding-right: 11px;
+}
+
+.colors select {
+  width: 190px;
+  margin-top: 2px;
+}
+
+.colors select:focus {
+  outline: none;
+}
+
 /* Note item styles */
 
 .card-body {
-  font-size: larger;
+  font-size: 24px;
   height: fit-content;
   background-color: inherit;
 }
@@ -28,14 +75,21 @@
 }
 
 .card-title {
+  display: flex;
   padding-top: 5px;
   padding-left: 5px;
   background-color: inherit;
   text-decoration: initial;
+  justify-content: space-between;
+  cursor: initial;
+}
+
+.card-title #dates {
+  align-self: flex-end;
 }
 
 .card {
-  background-color: rgb(190, 190, 190);
+  background-color: gainsboro;
 }
 
 .ok {
@@ -51,44 +105,65 @@
 .completed {
   background-color: darkseagreen;
 }
+
+#dates {
+  font-size: 18px;
+  width: 222px;
+  text-align: right;
+  margin-right: 5px;
+}
+
 /* NotesList styles */
 
+
 #list {
-  height: 77vh;
+  height: 78vh;
   overflow-y: auto;
-  background-color: rgb(151, 151, 151);
+  background-color: whitesmoke;
 }
 
 /* Element styles */
 
 /* Input */
+#create {
+  width: 500px;
+}
 input {
-  width: 300px;
+  width: 250px;
+}
+input#dateTo {
+  margin-left: 2px;
 }
 input:focus {
   outline: none;
 }
-
 /* Buttons */
+#optionsButton {
+  margin-right: 5px;
+  margin-left: 3px;
+  width: fit-content;
+  background-color: inherit;
+  border: none;
+}
+
 #removeButton {
   padding: none;
   width: 20px;
   border-radius: 20px;
   border: 2px lightcoral solid;
+  background-color: inherit;
+  cursor: pointer;
 }
 #removeButton:hover,
 #clearButton:hover {
   background-color: lightcoral;
 }
 
-#createButton:hover {
-  background-color: darkseagreen;
-}
-
 button {
+  cursor: pointer;
   margin: 2px;
-  background-color: rgb(190, 190, 190); /* Green */
-  border: none;
+  background-color: white; /* Green */
+  border: 1px rgb(190, 190, 190) solid;
   color: black;
   padding: 2px;
   text-align: center;
@@ -99,7 +174,7 @@ button {
 }
 
 button:hover {
-  background-color: #FCE181;
+  background-color: darkseagreen;
   color: black;
 }
 

@@ -22,7 +22,7 @@ class NoteItem extends Component {
       <div className="row" >
         <div className="col ok">
           <div className={"card" + (note.complete ? " completed" : "")} onClick = {this.toggle} >
-            <h4 className="card-title">Note <span className="float-right remove"><button type="button" id="removeButton" onClick={this.removeItem}>X</button></span></h4>
+            <h4 className="card-title"><span className="remove"><button type="button" id="removeButton" onClick={this.removeItem}>X</button></span>{note.title !== '' ? note.title : 'Note'}<span id='dates'>{note.dateFrom !== '' ? note.dateFrom + ' :' : ''}{note.dateTo !== '' ? ' '+ note.dateTo : ''}</span></h4>
             <div className={"card-body" + (note.complete ? " completed" : "")}>
               
               <ReactMarkdown source={note.text} />
