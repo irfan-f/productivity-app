@@ -10,7 +10,7 @@ class NotesList extends Component {
           {
             notes.map((_note, _index) => {
               return(
-                <NoteItem key={_index} note={_note} update={this.updateTodo}>
+                <NoteItem key={_index} note={_note} update={this.updateNote} removeItem={this.removeItem}>
                 </NoteItem>
               )
             })
@@ -19,7 +19,11 @@ class NotesList extends Component {
      );
   }
 
-  updateTodo = (note) => {
+  removeItem = (note) => {
+    this.props.removeItem(note);
+  }
+
+  updateNote = (note) => {
     this.props.update(note);
   }
 }

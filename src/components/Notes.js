@@ -42,6 +42,17 @@ class Notes extends Component {
     await this.setState({notes: newNotes});
     localStorage.setItem('notes', JSON.stringify(this.state.notes))
   }
+  
+  checkMatching(note) {
+    return 
+  }
+
+  removeItem = async (note) => {
+    const newNotes = this.state.notes.filter((x) => x.text != note.text);
+    await this.setState({notes: newNotes, count: this.state.count - 1});
+    localStorage.setItem('notes', JSON.stringify(this.state.notes));
+    localStorage.setItem('count', JSON.stringify(this.state.count));
+  }
 
   clearList = () => {
     localStorage.clear();
@@ -62,7 +73,7 @@ class Notes extends Component {
             <span className="float-right"><button type="button" onClick={this.clearList}>Clear list</button></span>
           </div>
         </div>
-        <NotesList notes={this.state.notes} update={this.updateNote}></NotesList>
+        <NotesList notes={this.state.notes} update={this.updateNote} removeItem={this.removeItem}></NotesList>
       </div>
     );
   }

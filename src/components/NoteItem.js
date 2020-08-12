@@ -6,14 +6,18 @@ class NoteItem extends Component {
   toggle = (e) => {
     this.props.update(this.props.note);
   }
+  removeItem = (e) => {
+    this.props.removeItem(this.props.note);
+  }
   render() { 
     const { note } = this.props;
     return (
-      <div className="row" onClick = {this.toggle}>
+      <div className="row" >
         <div className="col ok">
           <div className="card" >
-            <h4 className="card-title">Note</h4>
-            <div className={"card-body" + (note.complete ? " completed" : "")} >
+            <h4 className="card-title">Note <span className="float-right remove"><button type="button" onClick={this.removeItem}>X</button></span></h4>
+            <div className={"card-body" + (note.complete ? " completed" : "")} onClick = {this.toggle}>
+              
               <ReactMarkdown source={note.text} />
             </div>
           </div>
