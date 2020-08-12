@@ -48,7 +48,7 @@ class Notes extends Component {
   }
 
   removeItem = async (note) => {
-    const newNotes = this.state.notes.filter((x) => x.text != note.text);
+    const newNotes = this.state.notes.filter((x) => x.text !== note.text);
     await this.setState({notes: newNotes, count: this.state.count - 1});
     localStorage.setItem('notes', JSON.stringify(this.state.notes));
     localStorage.setItem('count', JSON.stringify(this.state.count));
