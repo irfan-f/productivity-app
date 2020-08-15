@@ -66,6 +66,7 @@
   height: fit-content;
   background-color: inherit;
   white-space: pre-wrap;
+  margin: -1px;
 }
 
 .remove {
@@ -164,8 +165,9 @@ input:focus {
   padding: none;
   width: 20px;
   border-radius: 20px;
-  border: 2px lightcoral solid;
-  background-color: inherit;
+  color: red;
+  border: 2px black solid;
+  background-color: white;
   cursor: pointer;
 }
 
@@ -177,7 +179,8 @@ input:focus {
 
 #removeButton:hover,
 #clearButton:hover {
-  background-color: lightcoral;
+  background-color: red;
+  color: black;
 }
 
 button {
