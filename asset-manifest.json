@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/productivity-app/static/css/main.2a895d1f.chunk.css",
+    "main.css": "/productivity-app/static/css/main.a5e450c4.chunk.css",
     "main.js": "/productivity-app/static/js/main.806d5dcb.chunk.js",
     "main.js.map": "/productivity-app/static/js/main.806d5dcb.chunk.js.map",
     "runtime-main.js": "/productivity-app/static/js/runtime-main.05190680.js",
@@ -8,15 +8,15 @@
     "static/js/2.24485c25.chunk.js": "/productivity-app/static/js/2.24485c25.chunk.js",
     "static/js/2.24485c25.chunk.js.map": "/productivity-app/static/js/2.24485c25.chunk.js.map",
     "index.html": "/productivity-app/index.html",
-    "precache-manifest.d9c75bf761879b70d316d18aa969e291.js": "/productivity-app/precache-manifest.d9c75bf761879b70d316d18aa969e291.js",
+    "precache-manifest.636f40a2b596379a192bf18d5c8b882e.js": "/productivity-app/precache-manifest.636f40a2b596379a192bf18d5c8b882e.js",
     "service-worker.js": "/productivity-app/service-worker.js",
-    "static/css/main.2a895d1f.chunk.css.map": "/productivity-app/static/css/main.2a895d1f.chunk.css.map",
+    "static/css/main.a5e450c4.chunk.css.map": "/productivity-app/static/css/main.a5e450c4.chunk.css.map",
     "static/js/2.24485c25.chunk.js.LICENSE.txt": "/productivity-app/static/js/2.24485c25.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.05190680.js",
     "static/js/2.24485c25.chunk.js",
-    "static/css/main.2a895d1f.chunk.css",
+    "static/css/main.a5e450c4.chunk.css",
     "static/js/main.806d5dcb.chunk.js"
   ]
 }
