@@ -4,21 +4,21 @@ import NoteItem from './NoteItem';
 import './stylesheets/Layout.css'
 
 class NotesList extends Component {
-  
+
   render() {
     const { notes } = this.props;
-    return ( 
+    return (
       <div className="container" id="list">
-          {
-            notes.map((_note, _index) => {
-              return(
-                <NoteItem key={_index} note={_note} update={this.updateNote} removeItem={this.removeItem}>
-                </NoteItem>
-              )
-            })
-          }
-        </div>
-     );
+        {
+          notes.map((_note, _index) => {
+            return (
+              <NoteItem tag='note' key={_index} note={_note} update={this.updateNote} removeItem={this.removeItem}>
+              </NoteItem>
+            )
+          })
+        }
+      </div>
+    );
   }
 
   removeItem = (note) => {
@@ -29,5 +29,5 @@ class NotesList extends Component {
     this.props.update(note);
   }
 }
- 
+
 export default NotesList;

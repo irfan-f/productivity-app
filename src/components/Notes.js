@@ -25,7 +25,7 @@ class Notes extends Component {
   }
 
   appendNote = async (note) => {
-    await this.setState({ notes: [{text: note.text, title: note.title, dateTo: note.dateTo, dateFrom: note.dateFrom, complete: false}, ...this.state.notes], count: this.state.count + 1 });
+    await this.setState({ notes: [{text: note.text, title: note.title, dateTo: note.dateTo, dateFrom: note.dateFrom, complete: false, id: note.id}, ...this.state.notes], count: this.state.count + 1 });
     localStorage.setItem('notes', JSON.stringify(this.state.notes));
     localStorage.setItem('count', parseInt(JSON.stringify(this.state.count)));
   }
@@ -38,7 +38,8 @@ class Notes extends Component {
           title: note.title,
           dateTo: note.dateTo,
           dateFrom: note.dateFrom,
-          complete: !note.complete
+          complete: !note.complete,
+          id: note.id
         }
       } else {
         return _note
@@ -48,11 +49,20 @@ class Notes extends Component {
     localStorage.setItem('notes', JSON.stringify(this.state.notes))
   }
 
-  removeItem = async (note) => {
-    const newNotes = this.state.notes.filter((x) => x.text !== note.text);
+  updateIndexing = async (notes) => {
+    let newNotes = notes.reverse().map((_note, _index) => {
+      _note.id = _index;
+      return _note;
+    });
+    newNotes.reverse();
     await this.setState({notes: newNotes, count: this.state.count - 1});
     localStorage.setItem('notes', JSON.stringify(this.state.notes));
     localStorage.setItem('count', JSON.stringify(this.state.count));
+  }
+
+  removeItem = async (note) => {
+    const newNotes = this.state.notes.filter((x) => x.id !== note.id);
+    this.updateIndexing(newNotes);
   }
 
   clearList = () => {
@@ -68,7 +78,7 @@ class Notes extends Component {
             <h3>You have <span className="badge badge-info"><big>{this.state.count}</big></span> notes</h3>
           </div>
           <div className="col-8">
-            <CreateNote append={this.appendNote}></CreateNote>
+            <CreateNote append={this.appendNote} keyProp={this.state.count}></CreateNote>
           </div>
           <div className="col-1">
             <span className="float-right"><button type="button" id="clearButton" onClick={this.clearList}>Clear list</button></span>
