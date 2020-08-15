@@ -8,7 +8,7 @@ class NotesList extends Component {
   render() {
     const { notes } = this.props;
     return (
-      <div className="container" id="list">
+      <div className='container' id='list'>
         {
           notes.map((_note, _index) => {
             return (

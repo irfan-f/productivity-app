@@ -72,16 +72,16 @@ class Notes extends Component {
 
   render() {
     return (
-      <div className="container" id="wrapper2">
-        <div className="row">
-          <div className="col-3">
-            <h3>You have <span className="badge badge-info"><big>{this.state.count}</big></span> notes</h3>
+      <div className='container' id='wrapper2'>
+        <div className='row'>
+          <div className='col-3'>
+            <h3>You have <span className='badge badge-info'><big>{this.state.count}</big></span> notes</h3>
           </div>
-          <div className="col-8">
+          <div className='col-8'>
             <CreateNote append={this.appendNote} keyProp={this.state.count}></CreateNote>
           </div>
-          <div className="col-1">
-            <span className="float-right"><button type="button" id="clearButton" onClick={this.clearList}>Clear list</button></span>
+          <div className='col-1'>
+            <span className='float-right'><button type='button' id='clearButton' onClick={this.clearList}>Clear list</button></span>
           </div>
         </div>
         <NotesList notes={this.state.notes} update={this.updateNote} removeItem={this.removeItem}></NotesList>
