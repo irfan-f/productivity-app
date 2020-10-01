@@ -37,28 +37,6 @@
   transition-timing-function: ease-in-out;
 }
 
-.colors {
-  border: 1px black solid;
-  margin-left: 1px;
-  display: inline-block;
-  width: 250px;
-  height: 29px;
-  margin: 2px;
-}
-.colors label {
-  padding-left: 3px;
-  padding-right: 11px;
-}
-
-.colors select {
-  width: 190px;
-  margin-top: 2px;
-}
-
-.colors select:focus {
-  outline: none;
-}
-
 /* Note item styles */
 
 .card-body {
@@ -125,22 +103,53 @@
   height: 75vh;
   overflow-y: auto;
   background-color: whitesmoke;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 /* Element styles */
 
 /* Input */
 #create {
-  width: 500px;
+  width: 36vw;
 }
 input {
-  width: 250px;
+  width: 18vw;
 }
 input#dateTo {
   margin-left: 2px;
 }
 input:focus {
+  outline: none;
+}
+
+.colors {
+  color: grey;
+  border: 1px grey solid;
+  margin-left: 1px;
+  display: inline-block;
+  width: 18vw;
+  height: 29px;
+  margin: 2px;
+}
+@media (min-width: 400px) {
+  @media (max-width: 711px) { 
+    .colors select {
+      margin-left: 1vw;
+      width: 45%;
+      margin-top: 2px;
+    }
+  }
+}
+@media (min-width: 711px) { 
+  .colors select {
+    margin-left: 1vw;
+    width: 60%;
+    margin-top: 2px;
+  }
+}
+
+
+.colors select:focus {
   outline: none;
 }
 /* Buttons */
@@ -150,14 +159,12 @@ input:focus {
   width: fit-content;
   background-color: inherit;
   border: none;
-  left: 520px;
   position: absolute;
   top: 30px;
 }
 
 #createButton {
   position: absolute;
-  left: 520px;
   top: -2px;
 }
 
@@ -172,7 +179,7 @@ input:focus {
 }
 
 #clearButton {
-  position: absolute;
+  position: relative;
   left: -1px;
   top: 25px;
 }
@@ -189,7 +196,7 @@ button {
   background-color: white; /* Green */
   border: 1px rgb(190, 190, 190) solid;
   color: black;
-  padding: 2px;
+  padding: 1px;
   text-align: center;
   display: inline-block;
   font-size: 16px;

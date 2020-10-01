@@ -78,10 +78,10 @@ class Notes extends Component {
           <div className='col-3'>
             <h3>You have <span className='badge badge-info'><big>{this.state.count}</big></span> notes</h3>
           </div>
-          <div className='col-8'>
+          <div className='col-7'>
             <CreateNote append={this.appendNote} keyProp={this.state.count}></CreateNote>
           </div>
-          <div className='col-1'>
+          <div className='col-2'>
             <span className='float-right'><button type='button' id='clearButton' onClick={this.clearList}>Clear list</button></span>
           </div>
         </div>
