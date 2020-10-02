@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPencilAlt } from '@fortawesome/free-solid-svg-icons'
 
 class CreateNote extends Component {
   constructor() {
@@ -66,7 +68,7 @@ class CreateNote extends Component {
           <button type='button' id='optionsButton' data-toggle='collapse' data-target='#collapseOptions' aria-expanded='false' aria-controls='collapseOptions' tabIndex='-1'>
             <i className='arrowDown' tabIndex='-1' />
           </button>
-          <button type='submit' id='createButton' tabIndex='-1'>Create</button>
+          <button type='submit' id='createButton' tabIndex='-1'><FontAwesomeIcon icon={faPencilAlt} /></button>
           <div className='collapse' id='collapseOptions'>
             <input id='title' placeholder='Title' type='text' onChange={(e) => this.updateTitle(e)}></input>
             <div className='colors'>

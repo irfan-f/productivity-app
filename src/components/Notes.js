@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import CreateNote from './CreateNote';
 import NotesList from './NotesList';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch, faEraser } from '@fortawesome/free-solid-svg-icons'
 
 import './stylesheets/Layout.css'
 
@@ -82,7 +84,18 @@ class Notes extends Component {
             <CreateNote append={this.appendNote} keyProp={this.state.count}></CreateNote>
           </div>
           <div className='col-2'>
-            <span className='float-right'><button type='button' id='clearButton' onClick={this.clearList}>Clear list</button></span>
+            
+          </div>
+        </div>
+        <div className='row' id='funcs'>
+          <div className='col-6' id='funcs'>
+            <span className='float-left'><button type='button' id='clearButton' onClick={this.clearList}><FontAwesomeIcon icon={faEraser} /></button></span>
+          </div>
+          <div className='col-6' id='funcs'>
+            <form className='float-right'> 
+              <input id='search' type='text' placeholder='Search: Under Construction'></input>
+              <button type='submit' id='searchButton'><FontAwesomeIcon icon={faSearch} /></button>
+            </form>
           </div>
         </div>
         <NotesList notes={this.state.notes} update={this.updateNote} removeItem={this.removeItem}></NotesList>
