@@ -37,6 +37,14 @@ class NotesList extends Component {
               </NoteItem>
               )} else {return null};
           });
+        case 'note':
+          return notes.map((_note, _index) => {
+            if(_note.text.toLowerCase().includes(filter)) {
+              return (
+              <NoteItem tag='note' key={_index} note={_note} update={this.updateNote} removeItem={this.removeItem}>
+              </NoteItem>
+              )} else {return null};
+          });
         default:
           return notes.map((_note, _index) => {
             if(_note.title.toLowerCase().includes(filter)) {
