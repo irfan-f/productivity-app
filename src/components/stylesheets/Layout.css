@@ -174,10 +174,7 @@ input:focus {
 }
 
 #searchForm {
-  background-color: white;
-  height: 36px;  
-  border: 1px rgb(118, 118, 118) solid;
-  color: rgb(118, 118, 118);
+  
 }
 
 #searchs {
@@ -186,8 +183,12 @@ input:focus {
 }
 
 .filterOn {
+  float: right;
   background-color: white;
-  display:inline;
+  height: 30px;  
+  border: 1px rgb(118, 118, 118) solid;
+  color: rgb(118, 118, 118);
+  width: fit-content;
 }
 
 /* Buttons */

@@ -18,7 +18,7 @@ class CreateNote extends Component {
 
 
   updateText = (e) => {
-    this.setState({ note: { text: e.target.value, dateTo: this.state.note.dateTo, dateFrom: this.state.note.dateFrom, title: this.state.note.title, id: this.props.keyProp, color: this.state.note.color } });
+    this.setState({ note: { text: e.target.value, dateTo: this.state.note.dateTo, dateFrom: this.state.note.dateFrom, title: this.state.note.title === '' ? 'Note' : this.state.note.title, id: this.props.keyProp, color: this.state.note.color } });
   }
 
   updateTitle = (e) => {
@@ -26,15 +26,15 @@ class CreateNote extends Component {
   }
 
   updateDateTo = (e) => {
-    this.setState({ note: { text: this.state.note.text, dateTo: e.target.value, dateFrom: this.state.note.dateFrom, title: this.state.note.title, id: this.props.keyProp, color: this.state.note.color } });
+    this.setState({ note: { text: this.state.note.text, dateTo: e.target.value, dateFrom: this.state.note.dateFrom, title: this.state.note.title === '' ? 'Note' : this.state.note.title, id: this.props.keyProp, color: this.state.note.color } });
   }
 
   updateDateFrom = (e) => {
-    this.setState({ note: { text: this.state.note.text, dateTo: this.state.note.dateTo, dateFrom: e.target.value, title: this.state.note.title, id: this.props.keyProp, color: this.state.note.color } });
+    this.setState({ note: { text: this.state.note.text, dateTo: this.state.note.dateTo, dateFrom: e.target.value, title: this.state.note.title === '' ? 'Note' : this.state.note.title, id: this.props.keyProp, color: this.state.note.color } });
   }
 
   updateColor = (e) => {
-    this.setState({ note: { text: this.state.note.text, dateTo: this.state.note.dateTo, dateFrom: this.state.note.dateFrom, title: this.state.note.title, id: this.props.keyProp, color: e.target.value } });
+    this.setState({ note: { text: this.state.note.text, dateTo: this.state.note.dateTo, dateFrom: this.state.note.dateFrom, title: this.state.note.title === '' ? 'Note' : this.state.note.title, id: this.props.keyProp, color: e.target.value } });
   }
 
   submitForm = (e) => {

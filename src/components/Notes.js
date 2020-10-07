@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import CreateNote from './CreateNote';
 import NotesList from './NotesList';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
 import './stylesheets/Layout.css'
 
@@ -12,7 +12,8 @@ class Notes extends Component {
     this.state = {
       notes: [],
       count: 0,
-      filter: ''
+      filter: '',
+      filterBy: 'title'
     };
   };
 
@@ -77,6 +78,14 @@ class Notes extends Component {
     this.setState({ notes: [], count: 0, filter: '' })
   }
 
+  setSearch = (e) => {
+    this.setState({notes: this.state.notes, count: this.state.count, filter: e.target.value.toLowerCase(), filterBy: this.state.filterBy});
+  }
+
+  setSearchBy = (e) => {
+    this.setState({notes: this.state.notes, count: this.state.count, filter: this.state.filter, filterBy: e.target.value});
+  }
+
   render() {
     return (
       <div className='container' id='wrapper2'>
@@ -95,24 +104,21 @@ class Notes extends Component {
           <div className='col-4' id='funcsLeft'>
             <span className='float-left'><button type='button' id='clearButton' onClick={this.clearList}><FontAwesomeIcon icon={faTrash} /></button></span>
           </div>
-          <div className='col-8' id='funcsRight'>
-            <form className='float-right' id='searchForm'> 
-              <input onChange={(e) => {  }} id='search' type='text' placeholder='Search'></input>
-              <div className='filterOn'>
+          <div className='col-8' id='funcsRight'>              
+            <div className='filterOn'>
+              <input onChange={this.setSearch} id='search' type='text' placeholder='Search'></input>
               <label htmlFor='filterBy'>by</label>
-                <select name='filterBy' id='searchs'>
+                <select name='filterBy' id='searchs' onChange={this.setSearchBy}>
                   <option value='title'>Title</option>
                   <option value='note'>Note</option>
                   <option value='dateFrom'>From</option>
                   <option value='dateTo'>To</option>
                   <option value='color'>Color</option>
                 </select>
-              </div>
-              <button type='submit' id='searchButton'><FontAwesomeIcon icon={faSearch} /></button>
-            </form>
+            </div>
           </div>
         </div>
-        <NotesList notes={this.state.notes} update={this.updateNote} removeItem={this.removeItem}></NotesList>
+        <NotesList notes={this.state.notes} update={this.updateNote} removeItem={this.removeItem} filter={this.state.filter} filterBy={this.state.filterBy}></NotesList>
       </div>
     );
   }
