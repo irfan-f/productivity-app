@@ -81,8 +81,15 @@ class CreateNote extends Component {
                 <option value='blue'>Blue</option>
               </select>
             </div>
-            <input id='dateFrom' placeholder='Date: from' type='text' onChange={(e) => this.updateDateFrom(e)}></input>
-            <input id='dateTo' placeholder='Date: to' type='text' onChange={(e) => this.updateDateTo(e)}></input>
+            <label for='dateFrom' id='dateFromLabel'>
+              From: 
+            </label>
+            <label for='dateTo' id='dateToLabel'>
+              To: 
+            </label>
+              <input id='dateFrom' defaultValue={new Date().toISOString().split('T')[0]} type='date' onChange={(e) => this.updateDateFrom(e)}></input>
+            
+              <input id='dateTo' type='date' min={new Date().toISOString().split('T')[0]} onChange={(e) => this.updateDateTo(e)}></input>
             <br />
           </div>
         </form>

@@ -103,7 +103,7 @@
 
 
 #list {
-  height: 70vh;
+  height: 68vh;
   overflow-y: auto;
   background-color: whitesmoke;
   margin-top: 5px;
@@ -133,6 +133,30 @@ input {
 input#dateTo {
   margin-left: 2px;
 }
+
+#dateToLabel,
+#dateFromLabel {
+  border-radius: 3px 3px 0px 0px;
+  width: 18vw;
+  text-align: center;
+  margin: auto auto;
+  border: 1px rgb(118, 118, 118) none;
+  border-style: solid solid none solid;
+  padding: 0px 0px -2px 0px;
+}
+
+#dateToLabel {
+  margin-left: 2px;
+}
+
+#dateTo,
+#dateFrom {
+  padding-top: 4px;
+  border: 1px rgb(118, 118, 118) none;
+  border-style: none solid solid solid;
+  border-radius: 0px 0px 3px 3px;
+}
+
 input:focus {
   outline: none;
 }
@@ -140,18 +164,28 @@ input:focus {
 .colors {
   color: grey;
   border: 1px grey solid;
+  border-radius: 3px;
   margin-left: 1px;
   display: inline-block;
   width: 18vw;
   height: 29px;
   margin: 2px;
 }
+
+#colors {
+  border-color: rgb(118, 118, 118);
+}
+
 @media (min-width: 400px) {
   @media (max-width: 711px) { 
     .colors select {
       margin-left: 1vw;
       width: 45%;
       margin-top: 2px;
+    }
+    input#dateTo,
+    input#dateFrom {
+      font-size: 1.35vw;
     }
   }
 }
@@ -160,6 +194,16 @@ input:focus {
     margin-left: 1vw;
     width: 60%;
     margin-top: 2px;
+  }
+  input#dateTo,
+  input#dateFrom {
+    font-size: 1.75vw;
+  }
+}
+@media (min-width: 900px) { 
+  input#dateTo,
+  input#dateFrom {
+    font-size: medium;
   }
 }
 
