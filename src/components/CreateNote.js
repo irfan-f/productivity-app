@@ -11,7 +11,7 @@ class CreateNote extends Component {
         title: '',
         dateTo: '',
         dateFrom: '',
-        color: 'default'
+        color: 'grey'
       }
     }
   }
@@ -46,7 +46,7 @@ class CreateNote extends Component {
       document.getElementById('title').value = '';
       document.getElementById('dateTo').value = '';
       document.getElementById('dateFrom').value = '';
-      document.getElementById('colors').value = 'default';
+      document.getElementById('colors').option = this.state.color;
       this.setState({
         note: {
           text: '',
@@ -54,7 +54,7 @@ class CreateNote extends Component {
           dateTo: '',
           dateFrom: '',
           id: '',
-          color: 'default'
+          color: this.state.note.color
         }
       })
     }
@@ -74,7 +74,7 @@ class CreateNote extends Component {
             <div className='colors'>
               <label htmlFor='colors'>Color:</label>
               <select name='colors' id='colors' onChange={(e) => this.updateColor(e)}>
-                <option value='default'>Default</option>
+                <option value='grey'>Grey</option>
                 <option value='red'>Red</option>
                 <option value='orange'>Orange</option>
                 <option value='yellow'>Yellow</option>
