@@ -6,7 +6,7 @@ class Header extends Component {
     return (
       <React.Fragment>
         <div className="page-header">
-          <h1 id="header">Productivity <small>A solution to organization</small></h1>
+          <h1 id="header">Productivity <small>An organizer for tasks</small></h1>
         </div>
       </React.Fragment>
     );

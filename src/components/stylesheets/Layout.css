@@ -13,6 +13,9 @@
 }
 
 /* Form styles */
+.badge {
+  background-color: darkseagreen;
+}
 
 .arrowDown {
   border: solid black;
@@ -106,7 +109,9 @@
   margin-top: 5px;
 }
 
-#funcs {
+#funcs,
+#funcsLeft,
+#funcsRight {
   margin: 0px;
   margin-bottom: -3px;
   padding: 0px;
@@ -163,7 +168,26 @@ input:focus {
 }
 
 #search {
-  width: 225px;
+  width: 112px;
+  border: none;
+  text-align: center;
+}
+
+#searchForm {
+  background-color: white;
+  height: 36px;  
+  border: 1px rgb(118, 118, 118) solid;
+  color: rgb(118, 118, 118);
+}
+
+#searchs {
+  color: rgb(118, 118, 118);
+  border: none;
+}
+
+.filterOn {
+  background-color: white;
+  display:inline;
 }
 
 /* Buttons */
@@ -171,10 +195,13 @@ input:focus {
   margin-right: 5px;
   margin-left: 3px;
   width: fit-content;
-  background-color: inherit;
   border: none;
   position: absolute;
   top: 30px;
+}
+
+#searchButton {
+  border: none;
 }
 
 #createButton {
@@ -182,22 +209,8 @@ input:focus {
   top: -2px;
 }
 
-#removeButton {
-  padding: none;
-  width: 20px;
-  border-radius: 20px;
-  color: red;
-  border: 2px black solid;
-  background-color: white;
-  cursor: pointer;
-}
-
-#clearButton {
-  background-color: whitesmoke;
-}
-
-#searchButton {
-  background-color: whitesmoke;
+#createButton:hover {
+  background-color: darkseagreen;
 }
 
 #searchButton:hover {
@@ -214,7 +227,8 @@ button {
   height: 30px;
   cursor: pointer;
   margin: 2px;
-  background-color: white; /* Green */
+  background-color: white;
+  border-radius: 2px;
   border-style: inset;
   border: 1px rgb(118, 118, 118) solid;
   color: black;
@@ -223,12 +237,7 @@ button {
   display: inline-block;
   font-size: 16px;
   transition-duration: 0.4s;
-  width: 40px;
-}
-
-button:hover {
-  background-color: darkseagreen;
-  color: black;
+  width: 30px;
 }
 
 button:focus {

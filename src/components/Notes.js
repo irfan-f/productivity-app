@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import CreateNote from './CreateNote';
 import NotesList from './NotesList';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch, faEraser } from '@fortawesome/free-solid-svg-icons'
+import { faSearch, faTrash } from '@fortawesome/free-solid-svg-icons'
 
 import './stylesheets/Layout.css'
 
@@ -12,6 +12,7 @@ class Notes extends Component {
     this.state = {
       notes: [],
       count: 0,
+      filter: ''
     };
   };
 
@@ -21,15 +22,16 @@ class Notes extends Component {
     if (notes) {
       const doNotes = JSON.parse(notes);
       const doCount = JSON.parse(count);
-      this.setState({ notes: [...doNotes], count: doCount });
+      this.setState({ notes: [...doNotes], count: doCount, filter: this.state.filter });
     }
 
   }
 
   appendNote = async (note) => {
-    await this.setState({ notes: [{ text: note.text, title: note.title, dateTo: note.dateTo, dateFrom: note.dateFrom, complete: false, id: note.id, color: note.color }, ...this.state.notes], count: this.state.count + 1 });
-    localStorage.setItem('notes', JSON.stringify(this.state.notes));
-    localStorage.setItem('count', parseInt(JSON.stringify(this.state.count)));
+    this.setState({ notes: [{ text: note.text, title: note.title, dateTo: note.dateTo, dateFrom: note.dateFrom, complete: false, id: note.id, color: note.color }, ...this.state.notes], count: this.state.count + 1, filter: this.state.filter }, () => {
+      localStorage.setItem('notes', JSON.stringify(this.state.notes));
+      localStorage.setItem('count', parseInt(JSON.stringify(this.state.count)));
+    });
   }
 
   updateNote = async (note) => {
@@ -48,8 +50,9 @@ class Notes extends Component {
         return _note
       }
     });
-    await this.setState({ notes: newNotes });
-    localStorage.setItem('notes', JSON.stringify(this.state.notes))
+    this.setState({ notes: newNotes, count: this.state.count, filter: this.state.filter }, () => {
+      localStorage.setItem('notes', JSON.stringify(this.state.notes));
+    });
   }
 
   updateIndexing = async (notes) => {
@@ -58,9 +61,10 @@ class Notes extends Component {
       return _note;
     });
     newNotes.reverse();
-    await this.setState({ notes: newNotes, count: this.state.count - 1 });
-    localStorage.setItem('notes', JSON.stringify(this.state.notes));
-    localStorage.setItem('count', JSON.stringify(this.state.count));
+    this.setState({ notes: newNotes, count: this.state.count - 1, filter: this.state.filter }, () => {
+      localStorage.setItem('notes', JSON.stringify(this.state.notes));
+      localStorage.setItem('count', JSON.stringify(this.state.count));
+    });
   }
 
   removeItem = async (note) => {
@@ -70,7 +74,7 @@ class Notes extends Component {
 
   clearList = () => {
     localStorage.clear();
-    this.setState({ notes: [], count: 0 })
+    this.setState({ notes: [], count: 0, filter: '' })
   }
 
   render() {
@@ -88,12 +92,22 @@ class Notes extends Component {
           </div>
         </div>
         <div className='row' id='funcs'>
-          <div className='col-6' id='funcs'>
-            <span className='float-left'><button type='button' id='clearButton' onClick={this.clearList}><FontAwesomeIcon icon={faEraser} /></button></span>
+          <div className='col-4' id='funcsLeft'>
+            <span className='float-left'><button type='button' id='clearButton' onClick={this.clearList}><FontAwesomeIcon icon={faTrash} /></button></span>
           </div>
-          <div className='col-6' id='funcs'>
-            <form className='float-right'> 
-              <input id='search' type='text' placeholder='Search: Under Construction'></input>
+          <div className='col-8' id='funcsRight'>
+            <form className='float-right' id='searchForm'> 
+              <input onChange={(e) => {  }} id='search' type='text' placeholder='Search'></input>
+              <div className='filterOn'>
+              <label htmlFor='filterBy'>by</label>
+                <select name='filterBy' id='searchs'>
+                  <option value='title'>Title</option>
+                  <option value='note'>Note</option>
+                  <option value='dateFrom'>From</option>
+                  <option value='dateTo'>To</option>
+                  <option value='color'>Color</option>
+                </select>
+              </div>
               <button type='submit' id='searchButton'><FontAwesomeIcon icon={faSearch} /></button>
             </form>
           </div>
