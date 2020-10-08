@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import CreateNote from './CreateNote';
 import NotesList from './NotesList';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faTrash, faSearch } from '@fortawesome/free-solid-svg-icons'
 
 import './stylesheets/Layout.css'
 
@@ -106,8 +106,9 @@ class Notes extends Component {
           </div>
           <div className='col-8' id='funcsRight'>              
             <div className='filterOn'>
-              <input onChange={this.setSearch} id='search' type='text' placeholder='Search'></input>
-              <label htmlFor='filterBy'>by</label>
+              <FontAwesomeIcon icon={faSearch} id='searchIcon' />
+              <input onChange={this.setSearch} id='search' type='text'></input>
+              <label htmlFor='filterBy'>in  </label>
                 <select name='filterBy' id='searchs' onChange={this.setSearchBy}>
                   <option value='title'>Title</option>
                   <option value='note'>Note</option>

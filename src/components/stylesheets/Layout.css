@@ -227,8 +227,13 @@ input:focus {
   background-color: white;
   height: 30px;  
   border: 1px rgb(118, 118, 118) solid;
+  border-radius: 3px;
   color: rgb(118, 118, 118);
   width: fit-content;
+}
+
+#searchIcon {
+  padding-left: 2px;
 }
 
 /* Buttons */
