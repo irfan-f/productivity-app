@@ -27,11 +27,13 @@
   -webkit-transform: rotate(45deg);
 }
 
-.collapse {
+.collapse,
+.collapseEdit {
   margin-bottom: 5px;
 }
 
-.collapsing {
+.collapsing,
+.collapsingEdit {
   position: relative;
   overflow: hidden;
   -webkit-transition-duration: .65s;
@@ -41,16 +43,33 @@
 }
 
 /* Note item styles */
+#titleEdit {
+  font-weight: 600;
+  font-size: large;
+  text-align: center;
+  height: fit-content;
+}
+
+#title {
+  align-content: center;
+}
+
+#noteEdit {
+  width: 100%;
+}
 
 .card-body {
   font-size: 24px;
   height: fit-content;
   background-color: inherit;
   white-space: pre-wrap;
+  padding-bottom: 35px;
   margin: -1px;
 }
 
 .remove {
+  position: absolute;
+  left: 0px;
   font-size: 16px;
   width: fit-content;
   height: fit-content;
@@ -58,12 +77,15 @@
 }
 
 .card-title {
+  justify-content: center;
+  text-align: center;
+  font-weight: 600;
+  font-size: larger;
   display: flex;
   padding-top: 5px;
   padding-left: 5px;
   background-color: inherit;
   text-decoration: initial;
-  justify-content: space-between;
 }
 
 .card-title #dates {
@@ -81,7 +103,6 @@
 .ok {
   padding-bottom: 10px;
   padding-top: 10px;
-  cursor: pointer;
 }
 
 .card-body.completed {
@@ -93,10 +114,13 @@
 }
 
 #dates {
+  position: absolute;
+  right: 35px;
   font-size: 18px;
-  width: 160px;
+  width: fit-content;
   text-align: right;
   margin-right: 5px;
+  float: right;
 }
 
 /* NotesList styles */
@@ -157,6 +181,11 @@ input#dateTo {
   border-radius: 0px 0px 3px 3px;
 }
 
+#datesEdit {
+  position: relative;
+  margin: auto;
+}
+
 input:focus {
   outline: none;
 }
@@ -176,6 +205,12 @@ input:focus {
   border-color: rgb(118, 118, 118);
 }
 
+#colorsEditSelect:focus,
+#noteEdit:focus
+ {
+  outline: none;
+}
+
 @media (min-width: 400px) {
   @media (max-width: 711px) { 
     .colors select {
@@ -184,7 +219,12 @@ input:focus {
       margin-top: 2px;
     }
     input#dateTo,
-    input#dateFrom {
+    input#dateFrom,
+    #dateToEdit,
+    #dateFromEdit {
+      font-size: 1.35vw;
+    }
+    #dates {
       font-size: 1.35vw;
     }
   }
@@ -196,14 +236,26 @@ input:focus {
     margin-top: 2px;
   }
   input#dateTo,
-  input#dateFrom {
+  input#dateFrom,
+  #dateToEdit,
+  #dateFromEdit {
     font-size: 1.75vw;
+  }
+  #dates {
+    top: 2px;
+    font-size: 1.8vw;
+    width: 14vw;
   }
 }
 @media (min-width: 900px) { 
   input#dateTo,
-  input#dateFrom {
+  input#dateFrom,
+  #dateToEdit,
+  #dateFromEdit {
     font-size: medium;
+  }
+  #dates {
+    font-size: 1.35vw;
   }
 }
 
@@ -250,9 +302,37 @@ input:focus {
   border: none;
 }
 
+#completeButton {
+  position: absolute;
+  right: 2px;
+}
+
+#completeUn {
+  position: relative;
+  margin-left: 2px;
+}
+
+#editCompleteButton {
+  position: absolute;
+  right: 2px;
+}
+
+#editButton {
+  position: absolute;
+  right: 2px;
+}
+
 #createButton {
   position: absolute;
   top: -2px;
+}
+
+#editButton:hover {
+  background-color: darkorange;
+}
+#completeButton:hover,
+#editCompleteButton:hover {
+  background-color: darkseagreen;
 }
 
 #createButton:hover {

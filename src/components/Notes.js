@@ -56,6 +56,27 @@ class Notes extends Component {
     });
   }
 
+  editNote = async (note) => {
+    const newNotes = this.state.notes.map(_note => {
+      if (note.id === _note.id) {
+        return {
+          text: note.text,
+          title: note.title,
+          dateTo: note.dateTo,
+          dateFrom: note.dateFrom,
+          complete: note.complete,
+          id: note.id,
+          color: note.color
+        }
+      } else {
+        return _note
+      }
+    });
+    this.setState({ notes: newNotes, count: this.state.count, filter: this.state.filter }, () => {
+      localStorage.setItem('notes', JSON.stringify(this.state.notes));
+    });
+  }
+
   updateIndexing = async (notes) => {
     let newNotes = notes.reverse().map((_note, _index) => {
       _note.id = _index;
@@ -119,7 +140,7 @@ class Notes extends Component {
             </div>
           </div>
         </div>
-        <NotesList notes={this.state.notes} update={this.updateNote} removeItem={this.removeItem} filter={this.state.filter} filterBy={this.state.filterBy}></NotesList>
+        <NotesList notes={this.state.notes} update={this.updateNote} edit={this.editNote} removeItem={this.removeItem} filter={this.state.filter} filterBy={this.state.filterBy}></NotesList>
       </div>
     );
   }

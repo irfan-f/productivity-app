@@ -9,7 +9,7 @@ class CreateNote extends Component {
       note: {
         text: '',
         title: '',
-        dateTo: '',
+        dateTo: new Date().toISOString().split('T')[0],
         dateFrom: '',
         color: 'grey'
       }
@@ -39,20 +39,21 @@ class CreateNote extends Component {
 
   submitForm = (e) => {
     e.preventDefault();
+    let date = new Date().toISOString().split('T')[0];
     if (document.getElementById('create').value !== '') {
       this.setState({ note: { text: this.state.note.text, dateTo: this.state.note.dateTo, dateFrom: this.state.note.dateFrom, title: this.state.note.title, id: this.props.keyProp, color: this.state.note.color } });
       this.props.append(this.state.note);
       document.getElementById('create').value = '';
       document.getElementById('title').value = '';
       document.getElementById('dateTo').value = '';
-      document.getElementById('dateFrom').value = '';
+      document.getElementById('dateFrom').value = date;
       document.getElementById('colors').option = this.state.color;
       this.setState({
         note: {
           text: '',
           title: '',
           dateTo: '',
-          dateFrom: '',
+          dateFrom: date,
           id: '',
           color: this.state.note.color
         }
@@ -81,15 +82,15 @@ class CreateNote extends Component {
                 <option value='blue'>Blue</option>
               </select>
             </div>
-            <label for='dateFrom' id='dateFromLabel'>
+            <label htmlFor='dateFrom' id='dateFromLabel'>
               From: 
             </label>
-            <label for='dateTo' id='dateToLabel'>
+            <label htmlFor='dateTo' id='dateToLabel'>
               To: 
             </label>
               <input id='dateFrom' defaultValue={new Date().toISOString().split('T')[0]} type='date' onChange={(e) => this.updateDateFrom(e)}></input>
             
-              <input id='dateTo' type='date' min={new Date().toISOString().split('T')[0]} onChange={(e) => this.updateDateTo(e)}></input>
+              <input id='dateTo' type='date' onChange={(e) => this.updateDateTo(e)}></input>
             <br />
           </div>
         </form>

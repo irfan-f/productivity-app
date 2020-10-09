@@ -20,7 +20,7 @@ class NotesList extends Component {
     const { notes } = this.props;
     return notes.map((_note, _index) => {
       return (
-        <NoteItem tag='note' key={_index} note={_note} update={this.updateNote} removeItem={this.removeItem}>
+        <NoteItem tag='note' key={_index} note={_note} update={this.updateNote} edit={this.editNote} removeItem={this.removeItem}>
         </NoteItem>
       )
       })
@@ -33,7 +33,7 @@ class NotesList extends Component {
           return notes.map((_note, _index) => {
             if(_note.title.toLowerCase().includes(filter)) {
               return (
-              <NoteItem tag='note' key={_index} note={_note} update={this.updateNote} removeItem={this.removeItem}>
+              <NoteItem tag='note' key={_index} note={_note} update={this.updateNote} edit={this.editNote} removeItem={this.removeItem}>
               </NoteItem>
               )} else {return null};
           });
@@ -41,7 +41,7 @@ class NotesList extends Component {
           return notes.map((_note, _index) => {
             if(_note.text.toLowerCase().includes(filter)) {
               return (
-              <NoteItem tag='note' key={_index} note={_note} update={this.updateNote} removeItem={this.removeItem}>
+              <NoteItem tag='note' key={_index} note={_note} update={this.updateNote} edit={this.editNote} removeItem={this.removeItem}>
               </NoteItem>
               )} else {return null};
           });
@@ -49,7 +49,7 @@ class NotesList extends Component {
           return notes.map((_note, _index) => {
             if(_note.color.toLowerCase().substring(0, filter.length) === filter) {
               return (
-              <NoteItem tag='note' key={_index} note={_note} update={this.updateNote} removeItem={this.removeItem}>
+              <NoteItem tag='note' key={_index} note={_note} update={this.updateNote} edit={this.editNote} removeItem={this.removeItem}>
               </NoteItem>
               )} else {return null};
           });
@@ -57,7 +57,7 @@ class NotesList extends Component {
           return notes.map((_note, _index) => {
             if(_note.dateTo.toLowerCase().substring(0, filter.length) === filter) {
               return (
-              <NoteItem tag='note' key={_index} note={_note} update={this.updateNote} removeItem={this.removeItem}>
+              <NoteItem tag='note' key={_index} note={_note} update={this.updateNote} edit={this.editNote} removeItem={this.removeItem}>
               </NoteItem>
               )} else {return null};
           });
@@ -65,7 +65,7 @@ class NotesList extends Component {
           return notes.map((_note, _index) => {
             if(_note.dateFrom.toLowerCase().substring(0, filter.length) === filter) {
               return (
-              <NoteItem tag='note' key={_index} note={_note} update={this.updateNote} removeItem={this.removeItem}>
+              <NoteItem tag='note' key={_index} note={_note} update={this.updateNote} edit={this.editNote} removeItem={this.removeItem}>
               </NoteItem>
               )} else {return null};
           });
@@ -73,7 +73,7 @@ class NotesList extends Component {
           return notes.map((_note, _index) => {
             if(_note.title.toLowerCase().includes(filter)) {
               return (
-              <NoteItem tag='note' key={_index} note={_note} update={this.updateNote} removeItem={this.removeItem}>
+              <NoteItem tag='note' key={_index} note={_note} update={this.updateNote} edit={this.editNote} removeItem={this.removeItem}>
               </NoteItem>
               )} else {return null};
           });
@@ -86,6 +86,10 @@ class NotesList extends Component {
 
   updateNote = (note) => {
     this.props.update(note);
+  }
+
+  editNote = (note) => {
+    this.props.edit(note);
   }
 }
 
