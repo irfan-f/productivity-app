@@ -100,11 +100,11 @@ class Notes extends Component {
   }
 
   setSearch = (e) => {
-    this.setState({notes: this.state.notes, count: this.state.count, filter: e.target.value.toLowerCase(), filterBy: this.state.filterBy});
+    this.setState({ notes: this.state.notes, count: this.state.count, filter: e.target.value.toLowerCase(), filterBy: this.state.filterBy });
   }
 
   setSearchBy = (e) => {
-    this.setState({notes: this.state.notes, count: this.state.count, filter: this.state.filter, filterBy: e.target.value});
+    this.setState({ notes: this.state.notes, count: this.state.count, filter: this.state.filter, filterBy: e.target.value });
   }
 
   render() {
@@ -118,25 +118,25 @@ class Notes extends Component {
             <CreateNote append={this.appendNote} keyProp={this.state.count}></CreateNote>
           </div>
           <div className='col-2'>
-            
+
           </div>
         </div>
         <div className='row' id='funcs'>
           <div className='col-4' id='funcsLeft'>
             <span className='float-left'><button type='button' id='clearButton' onClick={this.clearList}><FontAwesomeIcon icon={faTrash} /></button></span>
           </div>
-          <div className='col-8' id='funcsRight'>              
+          <div className='col-8' id='funcsRight'>
             <div className='filterOn'>
               <FontAwesomeIcon icon={faSearch} id='searchIcon' />
               <input onChange={this.setSearch} id='search' type='text'></input>
               <label htmlFor='filterBy'>in  </label>
-                <select name='filterBy' id='searchs' onChange={this.setSearchBy}>
-                  <option value='title'>Title</option>
-                  <option value='note'>Note</option>
-                  <option value='dateFrom'>From</option>
-                  <option value='dateTo'>To</option>
-                  <option value='color'>Color</option>
-                </select>
+              <select name='filterBy' id='searchs' onChange={this.setSearchBy}>
+                <option value='title'>Title</option>
+                <option value='note'>Note</option>
+                <option value='dateFrom'>From</option>
+                <option value='dateTo'>To</option>
+                <option value='color'>Color</option>
+              </select>
             </div>
           </div>
         </div>

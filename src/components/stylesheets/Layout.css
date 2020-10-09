@@ -1,4 +1,5 @@
 /* Header styles */
+
 .head {
   background-color: darkseagreen;
   margin-bottom: 10px;
@@ -8,11 +9,13 @@
   padding-left: 10px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
 #header small {
   color: rgb(78, 78, 78);
 }
 
 /* Form styles */
+
 .badge {
   background-color: darkseagreen;
 }
@@ -27,13 +30,11 @@
   -webkit-transform: rotate(45deg);
 }
 
-.collapse,
-.collapseEdit {
+.collapse, .collapseEdit {
   margin-bottom: 5px;
 }
 
-.collapsing,
-.collapsingEdit {
+.collapsing, .collapsingEdit {
   position: relative;
   overflow: hidden;
   -webkit-transition-duration: .65s;
@@ -43,6 +44,7 @@
 }
 
 /* Note item styles */
+
 #titleEdit {
   font-weight: 600;
   font-size: large;
@@ -96,7 +98,7 @@
   background-color: gainsboro;
 }
 
-.card:hover{
+.card:hover {
   opacity: 0.8;
 }
 
@@ -125,7 +127,6 @@
 
 /* NotesList styles */
 
-
 #list {
   height: 68vh;
   overflow-y: auto;
@@ -133,9 +134,7 @@
   margin-top: 5px;
 }
 
-#funcs,
-#funcsLeft,
-#funcsRight {
+#funcs, #funcsLeft, #funcsRight {
   margin: 0px;
   margin-bottom: -3px;
   padding: 0px;
@@ -145,21 +144,24 @@
 /* Element styles */
 
 /* Input */
+
 #create {
   width: 36vw;
 }
+
 #create:focus {
   outline: none;
 }
+
 input {
   width: 18vw;
 }
+
 input#dateTo {
   margin-left: 2px;
 }
 
-#dateToLabel,
-#dateFromLabel {
+#dateToLabel, #dateFromLabel {
   border-radius: 3px 3px 0px 0px;
   width: 18vw;
   text-align: center;
@@ -173,8 +175,7 @@ input#dateTo {
   margin-left: 2px;
 }
 
-#dateTo,
-#dateFrom {
+#dateTo, #dateFrom {
   padding-top: 4px;
   border: 1px rgb(118, 118, 118) none;
   border-style: none solid solid solid;
@@ -205,23 +206,18 @@ input:focus {
   border-color: rgb(118, 118, 118);
 }
 
-#colorsEditSelect:focus,
-#noteEdit:focus
- {
+#colorsEditSelect:focus, #noteEdit:focus {
   outline: none;
 }
 
 @media (min-width: 400px) {
-  @media (max-width: 711px) { 
+  @media (max-width: 711px) {
     .colors select {
       margin-left: 1vw;
       width: 45%;
       margin-top: 2px;
     }
-    input#dateTo,
-    input#dateFrom,
-    #dateToEdit,
-    #dateFromEdit {
+    input#dateTo, input#dateFrom, #dateToEdit, #dateFromEdit {
       font-size: 1.35vw;
     }
     #dates {
@@ -229,16 +225,14 @@ input:focus {
     }
   }
 }
-@media (min-width: 711px) { 
+
+@media (min-width: 711px) {
   .colors select {
     margin-left: 1vw;
     width: 60%;
     margin-top: 2px;
   }
-  input#dateTo,
-  input#dateFrom,
-  #dateToEdit,
-  #dateFromEdit {
+  input#dateTo, input#dateFrom, #dateToEdit, #dateFromEdit {
     font-size: 1.75vw;
   }
   #dates {
@@ -247,11 +241,9 @@ input:focus {
     width: 14vw;
   }
 }
-@media (min-width: 900px) { 
-  input#dateTo,
-  input#dateFrom,
-  #dateToEdit,
-  #dateFromEdit {
+
+@media (min-width: 900px) {
+  input#dateTo, input#dateFrom, #dateToEdit, #dateFromEdit {
     font-size: medium;
   }
   #dates {
@@ -277,7 +269,7 @@ input:focus {
 .filterOn {
   float: right;
   background-color: white;
-  height: 30px;  
+  height: 30px;
   border: 1px rgb(118, 118, 118) solid;
   border-radius: 3px;
   color: rgb(118, 118, 118);
@@ -289,6 +281,7 @@ input:focus {
 }
 
 /* Buttons */
+
 #optionsButton {
   margin-right: 5px;
   margin-left: 3px;
@@ -330,8 +323,8 @@ input:focus {
 #editButton:hover {
   background-color: darkorange;
 }
-#completeButton:hover,
-#editCompleteButton:hover {
+
+#completeButton:hover, #editCompleteButton:hover {
   background-color: darkseagreen;
 }
 
@@ -343,8 +336,7 @@ input:focus {
   background-color: lightblue;
 }
 
-#removeButton:hover,
-#clearButton:hover {
+#removeButton:hover, #clearButton:hover {
   background-color: lightcoral;
   color: black;
 }

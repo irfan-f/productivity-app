@@ -39,7 +39,7 @@ class NoteItem extends Component {
     if (e.target.id === 'removeButton') {
       this.removeItem(this.props.note);
     } else if (e.target.id === 'completeIt' || e.target.id === 'completeButton' || e.target.id === 'completeUn' || e.target.parentNode.id === 'completeIt' || e.target.parentNode.id === 'completeUn') {
-      this.setState({ complete: !this.state.complete})
+      this.setState({ complete: !this.state.complete })
       this.props.update(this.props.note);
     } else {
     }
@@ -102,7 +102,7 @@ class NoteItem extends Component {
                 <ReactMarkdown source={note.text} />
               </div>
               <button type='button' id='completeButton' onClick={(e) => this.toggle(e)} tabIndex='0' hidden={!this.state.edit ? !this.state.complete ? false : true : true}><FontAwesomeIcon id='completeIt' icon={faCheck} /></button>
-              <button type='button' id='completeButton' onClick={(e) => this.toggle(e)} tabIndex='0' hidden={!this.state.edit ? !this.state.complete ? true : false : true }><FontAwesomeIcon id='completeUn' icon={faTimes} /> </button>
+              <button type='button' id='completeButton' onClick={(e) => this.toggle(e)} tabIndex='0' hidden={!this.state.edit ? !this.state.complete ? true : false : true}><FontAwesomeIcon id='completeUn' icon={faTimes} /> </button>
             </div>
           </div>
         </div>
